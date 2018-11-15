@@ -2,6 +2,7 @@ package com.tip.travel.api.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.tip.travel.api.framework.annotation.Log;
+import com.tip.travel.api.framework.constants.LogTypeConstant;
 import com.tip.travel.common.domain.Travel;
 import com.tip.travel.common.service.TravelService;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,7 +18,7 @@ public class TravelController {
     private TravelService travelService;
 
     @GetMapping("/travel/{id}")
-    @Log
+    @Log(logType = LogTypeConstant.LOGIN_TYPE)
     public Travel getTravelById(@PathVariable("id") Long id) {
         return travelService.getTravelById(id);
     }
